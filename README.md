@@ -3,6 +3,6 @@
 ### Using Homebrew (MacOs & Linux)
 
 ```bash
-brew tap gosupersimple/tap git@github.com:gosupersimple/homebrew-tap
-brew install gosupersimple/tap/supersimple
+brew tap gosupersimple/cli git@github.com:gosupersimple/homebrew-cli
+brew install gosupersimple/cli/supersimple
 ```
