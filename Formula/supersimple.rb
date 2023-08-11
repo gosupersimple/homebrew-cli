@@ -1,7 +1,7 @@
 class Supersimple < Formula
   desc "CLI tool for Supersimple configuration management"
   homepage "https://github.com/gosupersimple/supersimple-cli"
-  version "1.4.0"
+  version "1.5.0"
 
   on_macos do
     if Hardware::CPU.arm?
