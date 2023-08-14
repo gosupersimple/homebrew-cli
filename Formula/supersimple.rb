@@ -6,14 +6,14 @@ class Supersimple < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v#{version}/supersimple-arm64-apple-darwin", :using => :nounzip
-      sha256 "3fb31539881b1689103d0181687c02cf6d91a667cbd7e418ba64daa893814075"
+      sha256 "c53ef4d2d7dce36dfbc59ae61cf38fb43ca7b32e28d0db59696f7f17ae01ab8e"
 
       def install
         bin.install "cdn.supersimple.cloud" => "supersimple"
       end
     else
-      url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v#{version}/supersimple-x86_64-apple-darwin"
-      sha256 "abb7e93ccd83838a9c6273d8975d965e17ddf98ee6bac90c666dcb1a84d11edf"
+      url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v#{version}/supersimple-x86_64-apple-darwin", :using => :nounzip
+      sha256 "331a12ef98c6d3f2cfb4c17843745dcd4bea97c392120ce65d96d026ddaf31af"
 
       def install
         bin.install "cdn.supersimple.cloud" => "supersimple"
@@ -22,8 +22,8 @@ class Supersimple < Formula
   end
 
   on_linux do
-    url "https://github.com/gosupersimple/supersimple-cli/releases/download/releases/v#{version}/supersimple-x86_64-linux-gnu"
-    sha256 "9df7436ff0ddf50eb0cb6cd2bf2813e9c8a9928a6bf4c2c71fc8e31422149606"
+    url "https://github.com/gosupersimple/supersimple-cli/releases/download/releases/v#{version}/supersimple-x86_64-linux-gnu", :using => :nounzip
+    sha256 "c3b24942053d8131bbb1ed4525cd148e6767a9468626891002236697a57a1668"
 
     def install
       bin.install "cdn.supersimple.cloud" => "supersimple"
