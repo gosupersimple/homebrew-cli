@@ -1,0 +1,97 @@
+name: Update Homebrew Formula
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version
+        required: true
+      url_mac_arm64:
+        description: URL for Mac ARM version
+        required: true
+      sha_mac_arm64:
+        description: SHA256 for Mac ARM version
+        required: true
+      url_mac_x64:
+        description: URL for Mac x64 version
+        required: true
+      sha_mac_x64:
+        description: SHA256 for Mac x64 version
+        required: true
+      url_linux_x64:
+        description: URL for Linux x64 version
+        required: true
+      sha_linux_x64:
+        description: SHA256 for Linux x64 version
+        required: true
+
+jobs:
+  update:
+    name: Update & push Homebrew formula
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate formula
+        id: generate-formula
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const formula = `
+            class Supersimple < Formula
+              desc "CLI tool for Supersimple configuration management"
+              homepage "https://github.com/gosupersimple/supersimple-cli"
+              version "${{ github.event.inputs.version }}"
+
+              on_macos do
+                if Hardware::CPU.arm?
+                  url "${{ github.event.inputs.url_mac_arm64 }}", :using => :nounzip
+                  sha256 "${{ github.event.inputs.sha_mac_arm64 }}"
+
+                  def install
+                    bin.install "cdn.supersimple.cloud" => "supersimple"
+                  end
+                else
+                  url "${{ github.event.inputs.url_mac_x64 }}", :using => :nounzip
+                  sha256 "${{ github.event.inputs.sha_mac_x64 }}"
+
+                  def install
+                    bin.install "cdn.supersimple.cloud" => "supersimple"
+                  end
+                end
+              end
+
+              on_linux do
+                url "${{ github.event.inputs.url_linux_x64 }}", :using => :nounzip
+                sha256 "${{ github.event.inputs.sha_linux_x64 }}"
+
+                def install
+                  bin.install "cdn.supersimple.cloud" => "supersimple"
+                end
+              end
+            end
+            `;
+
+            return formula;
+
+          result-encoding: string
+
+      - name: Write formula to file
+        run: echo '${{ steps.generate-formula.outputs.result }}' > formula/Formula.rb
+
+      - name: Setup Git Config
+        run: |
+          git config --global user.name "Supersimple Bot"
+          git config --global user.email "<>"
+
+      - name: Git Commit
+        run: |
+          git add .
+          git commit --message="Update Formula to ${{ github.event.inputs.version }}"
+
+      - name: Git Push
+        run: |
+          git pull --rebase
+          git push
