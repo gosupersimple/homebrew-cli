@@ -10,5 +10,6 @@ brew install gosupersimple/cli/supersimple
 ## Update CLI
 
 ```bash
+brew update
 brew upgrade supersimple
 ```
