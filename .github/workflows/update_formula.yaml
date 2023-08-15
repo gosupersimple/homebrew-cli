@@ -79,7 +79,7 @@ jobs:
           result-encoding: string
 
       - name: Write formula to file
-        run: echo '${{ steps.generate-formula.outputs.result }}' > formula/Formula.rb
+        run: echo '${{ steps.generate-formula.outputs.result }}' > Formula/supersimple.rb
 
       - name: Setup Git Config
         run: |
