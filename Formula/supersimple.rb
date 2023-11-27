@@ -1,19 +1,19 @@
 class Supersimple < Formula
   desc "CLI tool for Supersimple configuration management"
   homepage "https://github.com/gosupersimple/supersimple-cli"
-  version "2.3.0"
+  version "2.3.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v2.3.0/supersimple-arm64-apple-darwin", :using => :nounzip
-      sha256 "b1bf9d943b1583b921155b9d5ec5f33838472b0de2efaba487f3df785fd500f2"
+      url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v2.3.1/supersimple-arm64-apple-darwin", :using => :nounzip
+      sha256 "e3673f778eaf88e22967b2d0b7e94a0731e45d6b3058a59fe61f56724b184beb"
 
       def install
         bin.install "cdn.supersimple.cloud" => "supersimple"
       end
     else
-      url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v2.3.0/supersimple-x86_64-apple-darwin", :using => :nounzip
-      sha256 "e536d5ea7896e309b3ddb340970bdabbd11037dc92fa4e872bebe7200209a6ee"
+      url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v2.3.1/supersimple-x86_64-apple-darwin", :using => :nounzip
+      sha256 "6467ede5ec9ae5b3d8b8f95229d101da18270f1e781adcd8b14a31b5b637d60d"
 
       def install
         bin.install "cdn.supersimple.cloud" => "supersimple"
@@ -22,8 +22,8 @@ class Supersimple < Formula
   end
 
   on_linux do
-    url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v2.3.0/supersimple-x86_64-linux-gnu", :using => :nounzip
-    sha256 "160c840114f08b721fe510da2a9246107f1a90a0842e94b65774987075297a28"
+    url "https://storage.googleapis.com/cdn.supersimple.cloud/supersimple-cli/releases/v2.3.1/supersimple-x86_64-linux-gnu", :using => :nounzip
+    sha256 "b0c5efdf618e66a5a5b6a2dc4291c9940c1b256afbac4a3fe9625f1ca7311de1"
 
     def install
       bin.install "cdn.supersimple.cloud" => "supersimple"
