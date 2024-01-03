@@ -86,15 +86,6 @@ jobs:
           git config --global user.name "Supersimple Bot"
           git config --global user.email "<>"
 
-      - name: Create branch
-        run: |
-          git checkout -b update-formula-${{ github.event.inputs.version }}
-
-      - name: Git Commit
-        run: |
-          git add .
-          git commit --message="Update Formula to ${{ github.event.inputs.version }}"
-
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
