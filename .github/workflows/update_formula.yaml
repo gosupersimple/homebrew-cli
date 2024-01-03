@@ -103,5 +103,6 @@ jobs:
           title: Update Formula to ${{ github.event.inputs.version }}
           body: |
             This PR updates the Homebrew Formula to version ${{ github.event.inputs.version }}.
+          base: main
           branch: update-formula-${{ github.event.inputs.version }}
           reviewers: priithaamer
