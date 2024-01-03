@@ -99,6 +99,6 @@ jobs:
         run: |
           gh pr create --title "Update Formula to ${{ github.event.inputs.version }}" \
             --body "This PR updates the Homebrew Formula to version ${{ github.event.inputs.version }}." \
-            --base main --head ${{ github.ref }}
+            --base update-formula-${{ github.event.inputs.version }} --head main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
