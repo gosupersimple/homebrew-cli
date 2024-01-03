@@ -96,9 +96,13 @@ jobs:
           git commit --message="Update Formula to ${{ github.event.inputs.version }}"
 
       - name: Create Pull Request
-        run: |
-          gh pr create --title "Update Formula to ${{ github.event.inputs.version }}" \
-            --body "This PR updates the Homebrew Formula to version ${{ github.event.inputs.version }}." \
-            --base update-formula-${{ github.event.inputs.version }} --head main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update Formula to ${{ github.event.inputs.version }}
+          title: Update Formula to ${{ github.event.inputs.version }}
+          body: |
+            This PR updates the Homebrew Formula to version ${{ github.event.inputs.version }}.
+          branch: update-formula-${{ github.event.inputs.version }}
+          base: main
+          reviewers: priithaamer
