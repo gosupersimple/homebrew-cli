@@ -86,12 +86,22 @@ jobs:
           git config --global user.name "Supersimple Bot"
           git config --global user.email "<>"
 
+      - name: Create branch
+        run: |
+          git checkout -b update-formula-${{ github.event.inputs.version }}
+
       - name: Git Commit
         run: |
           git add .
           git commit --message="Update Formula to ${{ github.event.inputs.version }}"
 
-      - name: Git Push
-        run: |
-          git pull --rebase
-          git push
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update Formula to ${{ github.event.inputs.version }}
+          title: Update Formula to ${{ github.event.inputs.version }}
+          body: |
+            This PR updates the Homebrew Formula to version ${{ github.event.inputs.version }}.
+          branch: update-formula-${{ github.event.inputs.version }}
+          reviewers: priithaamer
