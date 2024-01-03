@@ -97,6 +97,8 @@ jobs:
 
       - name: Create Pull Request
         run: |
-          gh pr create --title "Update Formula to ${{ github.event.inputs.version }}" --body "This PR updates the Homebrew Formula to version ${{ github.event.inputs.version }}." --base main --head update-formula-${{ github.event.inputs.version }}
+          gh pr create --title "Update Formula to ${{ github.event.inputs.version }}" \
+            --body "This PR updates the Homebrew Formula to version ${{ github.event.inputs.version }}." \
+            --base main --head ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
