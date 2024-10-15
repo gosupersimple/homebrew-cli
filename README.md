@@ -13,3 +13,11 @@ brew install gosupersimple/cli/supersimple
 brew update
 brew upgrade supersimple
 ```
+
+## Development
+
+To test the recipe locally, run
+
+```bash
+brew install --build-from-source ./Formula/supersimple.rb
+```
