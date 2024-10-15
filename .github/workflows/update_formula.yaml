@@ -51,14 +51,14 @@ jobs:
                   sha256 "${{ github.event.inputs.sha_mac_arm64 }}"
 
                   def install
-                    bin.install "cdn.supersimple.cloud" => "supersimple"
+                    bin.install "supersimple-arm64-apple-darwin" => "supersimple"
                   end
                 else
                   url "${{ github.event.inputs.url_mac_x64 }}", :using => :nounzip
                   sha256 "${{ github.event.inputs.sha_mac_x64 }}"
 
                   def install
-                    bin.install "cdn.supersimple.cloud" => "supersimple"
+                    bin.install "supersimple-x86_64-apple-darwin" => "supersimple"
                   end
                 end
               end
@@ -68,7 +68,7 @@ jobs:
                 sha256 "${{ github.event.inputs.sha_linux_x64 }}"
 
                 def install
-                  bin.install "cdn.supersimple.cloud" => "supersimple"
+                  bin.install "supersimple-x86_64-linux-gnu" => "supersimple"
                 end
               end
             end
