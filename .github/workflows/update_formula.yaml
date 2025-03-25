@@ -87,7 +87,7 @@ jobs:
           git config --global user.email "<>"
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update Formula to ${{ github.event.inputs.version }}
