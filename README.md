@@ -1,6 +1,6 @@
 ## Install CLI
 
-### Using Homebrew (MacOs & Linux)
+### Using Homebrew (MacOS & Linux)
 
 ```bash
 brew tap gosupersimple/cli git@github.com:gosupersimple/homebrew-cli
