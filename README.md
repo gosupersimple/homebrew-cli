@@ -4,6 +4,7 @@
 
 ```bash
 brew tap gosupersimple/cli git@github.com:gosupersimple/homebrew-cli
+brew trust --tap gosupersimple/cli
 brew install gosupersimple/cli/supersimple
 ```
 
