@@ -2,19 +2,19 @@
 class Supersimple < Formula
   desc "CLI tool for Supersimple configuration management"
   homepage "https://github.com/gosupersimple/supersimple-cli"
-  version "2.20.0"
+  version "2.21.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://assets.supersimple.io/supersimple-cli/releases/v2.20.0/supersimple-arm64-apple-darwin", :using => :nounzip
-      sha256 "30e2c11bc4fa3effe52a907f1dce42bd6c5114649a4f9705dcd8a9a8cf8a8cb4"
+      url "https://assets.supersimple.io/supersimple-cli/releases/v2.21.0/supersimple-arm64-apple-darwin", :using => :nounzip
+      sha256 "132a0777499606a8e0498f91c2a72038809a0e4e99c79fa5dc54ef2f68729d4e"
 
       def install
         bin.install "supersimple-arm64-apple-darwin" => "supersimple"
       end
     else
-      url "https://assets.supersimple.io/supersimple-cli/releases/v2.20.0/supersimple-x86_64-apple-darwin", :using => :nounzip
-      sha256 "d5a65c8df429be6e5e50b54f8b863b028cf12665068c43f3e3e5ca0a87bf453b"
+      url "https://assets.supersimple.io/supersimple-cli/releases/v2.21.0/supersimple-x86_64-apple-darwin", :using => :nounzip
+      sha256 "6228cae3aaf2ad48d681b350b9dce47b6a9bf54ff5f509d31c9761867b4acd75"
 
       def install
         bin.install "supersimple-x86_64-apple-darwin" => "supersimple"
@@ -23,8 +23,8 @@ class Supersimple < Formula
   end
 
   on_linux do
-    url "https://assets.supersimple.io/supersimple-cli/releases/v2.20.0/supersimple-x86_64-linux-gnu", :using => :nounzip
-    sha256 "5e6520ef2a935fc2cb830a38f7b92900017ad1ed5e77040bb16411d67c866917"
+    url "https://assets.supersimple.io/supersimple-cli/releases/v2.21.0/supersimple-x86_64-linux-gnu", :using => :nounzip
+    sha256 "15a6ae068997c67c174848133b5d754acd59d202dfdcc9151d724ebdcbcb05b7"
 
     def install
       bin.install "supersimple-x86_64-linux-gnu" => "supersimple"
